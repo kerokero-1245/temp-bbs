@@ -11,8 +11,13 @@ export const initLoading = (Wrapper) => {
 
         const fetch = async() => {
             const tmpLoad = localStorage.getItem('log');
-            const load = JSON.parse(tmpLoad);
-            setData(load);
+            
+            if(tmpLoad.length === 0){
+                setData([{name:"sample",text:"sample"}]);
+            }else{
+                const load = JSON.parse(tmpLoad);
+                setData(load);    
+            }
         }
 
         const Loading = (
